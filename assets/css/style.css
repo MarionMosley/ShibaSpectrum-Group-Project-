@@ -5,3 +5,39 @@
     font-family: 'Play', sans-serif;
 }
 
+#playHeader {
+    font-size: 300%;
+    font-family: 'Play', sans-serif;
+    line-height: 300%;
+
+
+}
+
+.timeDay {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 50px;
+    margin: 20px;
+    line-height: 240%;
+}
+
+#day {
+    font-size: 175%;
+    font-family: 'Play', sans-serif;
+
+}
+
+#time {
+    font-size: 350%;
+    font-family: 'Play', sans-serif;
+
+}
+
+#tagline {
+    line-height: 200%;
+    font-family: 'Play', sans-serif;
+ 
+}
