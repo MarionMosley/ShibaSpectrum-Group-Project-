@@ -3,10 +3,13 @@
     --dark: #2e3192;
     --light: white;
     font-family: 'Play', sans-serif;
+    background-color: var(--dark);
+
 }
 
 
-#playHeader {
+/*#playHeader {
+    color: var(--light);
     font-size: 300%;
     font-family: 'Play', sans-serif;
     line-height: 300%;
@@ -28,17 +31,24 @@
 #day {
     font-size: 175%;
     font-family: 'Play', sans-serif;
-
+    color: var(--light);
 }
 
 #time {
     font-size: 350%;
     font-family: 'Play', sans-serif;
-
+    color: var(--light);
 }
 
 #tagline {
+    margin-bottom: -4rem;
     line-height: 200%;
     font-family: 'Play', sans-serif;
- 
+    color: var(--light);
+}
+
+.imgincenter {
+    width: 30%;
+    display: block;
+    margin: auto;
 }
