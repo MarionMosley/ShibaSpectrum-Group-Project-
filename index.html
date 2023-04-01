@@ -1,44 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TimeTunes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> 
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel = "stylesheet" href="./assets/css/style.css">
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TimeTunes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <!-- I have blocked out the original stylesheet as it isn't relevant for our new idea atm-->
+  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+  <link rel="stylesheet" href="./assets/css/quiz.css">
+</head>
 
-    <main>
-      <header>
-        <section class="timeDay">
-          <h1 id="playHeader">TimeTunes</h1>
-          <div id="day"></div>
-          <div id="time"></div>
-          <div id="tagline">Tune in to every moment with Timetunes - your personalized time-based playlist.</div>
-        </section>
-      </header>
+<body>
 
-      <section class="playcontainer">
-        <h2> </h2>
-        <h3></h3>
-        <p></p>
-        <img>
+  <main>
+
+    <header>
+      <h1 id="playHeader">TimeTunes</h1>
+    </header>
+
+    <!-- playing page container  (disregard rn)-->
+    <div class="playcontainer">
+
+      <!--current time and day header/tagline-->
+      <section class="timeDay">
+
+        <!-- current day tag (js linked) -->
+        <div id="day"></div>
+        <!-- current time tag (js linked) -->
+        <div id="time"></div>
+        <!-- TimeTunes tagline (js linked) -->
+        <div id="tagline">Tune in to every moment with Timetunes - your personalized time-based playlist.</div>
+
 
       </section>
-    </main>
+    </div>
+
+    <!--quiz container-->
+
+
+    <div id="quiz">
+
+      <!--question container-->
+      <section id="question-container" class="hide">
+
+        <div id="questions"> </div>
+        <!--answer options container-->
+        <div id="answers">
+          <button class="btn"> Answer 1 </button>
+          <button class="btn"> Answer 2 </button>
+          <button class="btn"> Answer 3 </button>
+          <button class="btn"> Answer 4 </button>
+        </div>
 
 
 
 
-  <script
-        src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-        crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+      </section>
+      <!--CONTROLS CONTAINER-->
+      <section id="controls">
+        <!--start button-->
+        <button id="startbtn" class="start-btn"> Start Quiz</button>
+
+
+      </section>
+  
+
+      
+    </div>
+
+     <!--end screen and highscore input section-->
+     <section id="end-screen" class="theend">
+      <h2> Congrats! You completed the quiz!</h2>
+      <p id="finalscore"></p>
+      <label for="pname" class="boldtextcss">WRITE YOUR NAME HERE:</label>
+      <input type="text" id="playername" name="pname">
+      <button id="submitbtn" class="submitb">submit</button>
+  </section>
+
+
+  </main>
+
+  <footer>
+    TimeTunes 
+  </footer>
+
+
+<script src="./assets/javascript/quiz.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="./assets/javascript/header.js"></script>
-  </body>
+</body>
+
 </html>

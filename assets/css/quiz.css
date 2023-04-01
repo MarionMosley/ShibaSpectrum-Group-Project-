@@ -1,0 +1,177 @@
+/* entire page defaults */
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+:root {
+    --dark: #2e3192;
+    --light: #7679cf;
+    --btn: #2e3192;
+    font-family: 'Play', sans-serif;
+    background-color: var(--dark);
+
+
+}
+
+/* I've just hidden the original TimeTunes styling/page just in case we are retouching with this concept. No code has been deleted*/
+.playcontainer {
+    display: none
+}
+
+h1 {
+    font-family: 'Play', sans-serif;
+    padding-top: 5rem;
+    text-align: center;
+    margin-top: 9rem;
+    top: 0;
+    color: white;
+    font-size: 4rem;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#quiz {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 2px var(--light);
+}
+
+
+#questions {
+    font-size: 1.75rem;
+}
+
+/* button styling */
+.btn {
+    font-family: 'Play', sans-serif;
+    font-size: 1.76rem;
+    color: white;
+    background-color: var(--btn);
+    display: grid;
+    margin: 20px 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.btn:hover,
+#startbtn:hover,
+#submitbtn:hover {
+    background-color: var(--light);
+}
+
+.start-btn:active,
+.submitb:active {
+    background-color: rgb(89, 99, 190);
+}
+
+
+.selected {
+    outline: none;
+    box-shadow: 0 0 10px rgb(3, 13, 68);
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+#startbtn {
+    font-family: 'Play', sans-serif;
+    color: white;
+    background-color: var(--btn);
+    margin: 20px 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 3rem;
+    margin-left: 16rem;
+}
+
+
+/*end page CSS*/
+
+h2 {
+    color: white;
+    font-size: 1.75rem;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.boldtextcss,
+#playername {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.theend {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 2px var(--light);
+}
+
+#finalscore {
+    text-align: center;
+    font-size: 1.25rem;
+
+}
+
+#submitbtn {
+    border: 0;
+
+    font-family: 'Play', sans-serif;
+    color: white;
+    background-color: var(--btn);
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+}
+
+/*hide class for javascript */
+
+.hide {
+    display: none;
+}
+
+/* small screen compatibility */
+@media screen and (max-width: 922px) {
+    #startbtn {
+        margin: 20px auto;
+        display: block;
+    }
+
+    #startbtn.hide-small {
+        display: none
+    }
+}
+
+/*footer css */
+
+footer {
+    color: white;
+    margin-top: 5rem;
+    text-align: center;
+}
