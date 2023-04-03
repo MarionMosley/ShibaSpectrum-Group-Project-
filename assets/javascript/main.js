@@ -1,5 +1,6 @@
 
 const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; //currently no reason to have this as a var
+const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
 
@@ -19,16 +20,17 @@ let channel = [ //youtube channel list
 
 let video;
 
-let score = 7 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+let score = null //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
 
 
 function scoreError(){
   $(videoContainer).append(`
-  <div class='notification'>
+    <div class='notification'>
     <button class="delete"></button>
     There was a error getting your score
     </div>`
   );
+  return;
 }
 
 $(document).on('click', '.delete', function(e){
@@ -48,9 +50,9 @@ if (score >= 9) { //if statement that gets channel id based on score
   console.log(channelId, score);
 } else {
   console.log('error loading score');
-  // scoreError();
-  // return;
+  scoreError();
 }
+
 
 $(document).on('click', '.delete', function(e){
   e.preventDefault();
@@ -58,7 +60,7 @@ $(document).on('click', '.delete', function(e){
 })
 
 // api call grabs top 3 most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
-fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=3&order=viewCount&key=${apiKey}`, { 
+fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiALT}`, { 
 })
 .then(response => response.json())
 .then(data => {
