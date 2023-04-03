@@ -61,10 +61,19 @@ var questionIndex = [
     },
 
     {
-        question: "Do you like cats or dogs more?",
-        answer:["Cats", "Dogs"] ,
+        question: "Which of the following best describes your level of empathy towards others?",
+        answer:["Very empathetic and attuned to others' emotions", "Moderately empathetic", "Not very empathetic"] ,
     },
 
+    {
+        question: "How do you make decisions?",
+        answer:["By relying on your intuition", "By carefully weighing all options", "By seeking advice and input from others"] ,
+    },
+
+    {
+        question: "Do you like cats or dogs more?",
+        answer:["Cats", "Dogs",] ,
+    },
 ];
 
 
