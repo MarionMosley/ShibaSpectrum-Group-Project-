@@ -19,7 +19,7 @@ let channel = [ //youtube channel list
 
 let video;
 
-let score = null //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+let score = 7 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
 
 
 function scoreError(){
@@ -48,8 +48,8 @@ if (score >= 9) { //if statement that gets channel id based on score
   console.log(channelId, score);
 } else {
   console.log('error loading score');
-  scoreError();
-  return;
+  // scoreError();
+  // return;
 }
 
 $(document).on('click', '.delete', function(e){
