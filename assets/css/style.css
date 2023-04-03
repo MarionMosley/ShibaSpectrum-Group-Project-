@@ -8,47 +8,20 @@
 }
 
 
-/*#playHeader {
-    color: var(--light);
-    font-size: 300%;
-    font-family: 'Play', sans-serif;
-    line-height: 300%;
-
-
-}
-
-.timeDay {
-    display: block;
+.video-container {
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    padding: 50px;
-    margin: 20px;
-    line-height: 240%;
+    display: flex;
+    margin: 0, 1rem;
+    padding: 0, 1rem;
 }
 
-#day {
-    font-size: 175%;
+
+.text {
     font-family: 'Play', sans-serif;
-    color: var(--light);
-}
+    padding-top: 1rem;
+    margin-top: .4rem;
+    top: 0;
+    color: white;
+    font-size: 2rem;
+} 
 
-#time {
-    font-size: 350%;
-    font-family: 'Play', sans-serif;
-    color: var(--light);
-}
-
-#tagline {
-    margin-bottom: -4rem;
-    line-height: 200%;
-    font-family: 'Play', sans-serif;
-    color: var(--light);
-}
-
-.imgincenter {
-    width: 30%;
-    display: block;
-    margin: auto;
-}
