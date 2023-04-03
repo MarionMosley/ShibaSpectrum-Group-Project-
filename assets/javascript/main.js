@@ -1,7 +1,3 @@
-//to do:   
-    // get user score into local storage array[]
-    // make different api call based on score []
-    // display thumbnails, and make watchable on click [X]
 
 const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8';
 const videoContainer = $('.video');
@@ -23,11 +19,15 @@ fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=U
 
 
 function loadThumbnails(video) { //loads thumbnails of the channel on page load.
-  video.forEach(video => { //this spits out errors but works......
+  video.forEach(video => { //this spits out errors.... but works....
     console.log(video.snippet.title);
     $(videoContainer).append(`
-      <h3>${video.snippet.title}</h3>
-      <img class='click' src="${video.snippet.thumbnails.high.url}">`); 
+      <div class='video-container'>
+        <h3 class='text'>${video.snippet.title}</h3>
+        </div>
+        <div>
+        <img class='click' src="${video.snippet.thumbnails.high.url}">
+      </div>`); 
   });
   console.log(video);
 }
@@ -39,9 +39,11 @@ $(document).on('click', '.click', function playVideo(){ //running this function 
   const selectedVideo = video[index];
   $(videoContainer).empty();
   $(videoContainer).append(`
-    <h3>${selectedVideo.snippet.title}</h3>
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/${selectedVideo.id.videoId}">
-    </iframe> 
+    <div>
+      <h3 class='text'>${selectedVideo.snippet.title}</h3>
+      <iframe width="1280" height="720" src="https://www.youtube.com/embed/${selectedVideo.id.videoId}">
+      </iframe> 
+    </div>
   `);
 });
 

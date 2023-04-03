@@ -143,11 +143,28 @@ function endQuiz() {
     quizDocumentEl.classList.add('hide');
     //presents final score
     endofquizresult.textContent = 'Your result is: ' + totalscore; //need to change totalscore to be the generated answer (using score)
+    
+
+    const randomImage = $('#random-image'); 
+    let image;
+
+
+    fetch(`http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`,) //fetch request for random image 
+        .then(response => response.json())
+        .then(data => {
+        console.log(data);
+        image = data[0];    //gets item and assigns it to image var
+        console.log(image);
+        $(randomImage).append(`
+            <img class='click' src=${image}>
+        `);
+    })
+    .catch(error => console.error(error));
 }
 
 
-
-$('#submitbtn').on('click', function(){
+$('#submitbtn').on('click', function(){ //on quiz finish click, loads the "random" video
     console.log('aaaaa')
     location.replace('./main.html');
 });
+
