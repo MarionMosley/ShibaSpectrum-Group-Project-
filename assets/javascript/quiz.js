@@ -145,3 +145,9 @@ function endQuiz() {
     endofquizresult.textContent = 'Your result is: ' + totalscore; //need to change totalscore to be the generated answer (using score)
 }
 
+
+
+$('#submitbtn').on('click', function(){
+    console.log('aaaaa')
+    location.replace('./main.html');
+});
