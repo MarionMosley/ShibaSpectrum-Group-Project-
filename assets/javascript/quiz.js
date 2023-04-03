@@ -175,15 +175,15 @@ function nextQuestion() {
 
 }
 
-
+console.log(questionIndex[0].question);
 
 function showQuestion(question) {
-    questionsEl.innerText = questionIndex[0].question;
-    questionIndex[0].question.answer.forEach(answer => {
+    questionsEl.innerText = question.question;
+    question.answer.forEach(answer => {
         const button = document.createElement('button')
-        button.innerText = answer;
+        button.innerText = answer.text;
         button.classList.add('btn')
-        if (question.correctAnswer === answer) {
+        if (question.correctAnswer === answer.text) {
             button.dataset.correct = true
         }
         button.addEventListener('click', answerSelect)
