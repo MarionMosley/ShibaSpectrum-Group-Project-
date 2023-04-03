@@ -1,9 +1,11 @@
 
-const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8';
+const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; //currently no reason to have this as a var
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
 
-let channel = [ //channel list
+const hide = $('.delete');
+
+let channel = [ //youtube channel list
   {
     lofiGirl: 'UCSJ4gkVC6NrvII8umztf0Ow'
   },
@@ -17,22 +19,43 @@ let channel = [ //channel list
 
 let video;
 
-const score = 5 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+let score = null //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
 
 
-
-if (score >= 8) { //if statement that gets channel id based on score 
-  channelId = channel[2].shiba;
-  console.log(channelId);
-} else if (score >= 4 && score <= 7) {
-  channelId = channel[1].sunshine;
-  console.log(channelId);
-} else if (score <= 3){
-  channelId = channel[0].lofiGirl;
-  console.log(channelId);
-} else {
-  console.log('error')
+function scoreError(){
+  $(videoContainer).append(`
+  <div class='notification'>
+    <button class="delete"></button>
+    There was a error getting your score
+    </div>`
+  );
 }
+
+$(document).on('click', '.delete', function(e){
+  e.preventDefault();
+  $(videoContainer).empty();
+})
+
+
+if (score >= 9) { //if statement that gets channel id based on score 
+  channelId = channel[2].shiba;
+  console.log(channelId, score);
+} else if (score >= 5 && score <= 8) {
+  channelId = channel[1].sunshine;
+  console.log(channelId, score);
+} else if (score >= 1 && score <= 4){
+  channelId = channel[0].lofiGirl;
+  console.log(channelId, score);
+} else {
+  console.log('error loading score');
+  scoreError();
+  return;
+}
+
+$(document).on('click', '.delete', function(e){
+  e.preventDefault();
+  $(videoContainer).empty();
+})
 
 // api call grabs top 3 most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
 fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=3&order=viewCount&key=${apiKey}`, { 
