@@ -16,33 +16,53 @@ endPage.classList.add('hide');
 //Questions and answers 
 var questionIndex = [
     {
-        question: "Placeholder1",
-        answer:["Placeholder", "Placeholder"] ,
+        question: "Which word best describes your approach to decision-making?",
+        answer:["Logical", "Intuitive", "Impulsive"] ,
          
     },
     {
-        question: "Placeholder2",
-        answer:["Placeholder", "Placeholder"] ,
+        question: "Which of the following best describes your communication style?",
+        answer:["Direct and to the point", "Diplomatic and tactful", "Expressive and enthusiastic"] ,
          
     },
     {
-        question: "Placeholder3",
-        answer:["Placeholder", "Placeholder"] ,
+        question: "How do you typically respond to stress?",
+        answer:["By working harder and staying focused", "By seeking support and talking to others", "By avoiding the situation altogether"] ,
         
     },
     {
-        question: "Placeholder4",
-        answer:["Placeholder", "Placeholder"] ,
+        question: "How would you describe your level of assertiveness?",
+        answer:["Very assertive", "Moderately assertive", "Not very assertive"] ,
         
     },
     {
-        question: "Placeholder5",
-        answer:["Placeholder", "Placeholder"] ,
+        question: "Which of the following best describes your attitude towards rules and authority?",
+        answer:["Respectful and compliant", "Skeptical and questioning", "Rebellious and defiant"] ,
     },
     
     {
-        question: "Placeholder6",
-        answer:["Placeholder", "Placeholder"] ,
+        question: "How do you typically handle criticism or negative feedback?",
+        answer:["By taking it as an opportunity to learn and improve", "By becoming defensive or angry", "By feeling hurt and withdrawing"] ,
+    },
+
+    {
+        question: "How do you prefer to spend your free time?",
+        answer:["Engaging in physical activities", "Pursuing creative hobbies", "Relaxing and unwinding at home"] ,
+    },
+
+    {
+        question: "Which of the following best describes your level of risk-taking?",
+        answer:["Very willing to take risks and try new things", "Moderately willing to take risks", "Not willing to take risks and preferring safety"] ,
+    },
+
+    {
+        question: "Which of the following best describes your level of self-discipline?",
+        answer:["Very disciplined and able to stick to routines and schedules", "Moderately disciplined, but sometimes struggle with consistency", "Not very disciplined and often struggle to stay on track"] ,
+    },
+
+    {
+        question: "Do you like cats or dogs more?",
+        answer:["Cats", "Dogs"] ,
     },
 
 ];
