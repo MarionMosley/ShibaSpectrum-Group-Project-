@@ -20,9 +20,9 @@ var questionIndex = [
     {
         question: "Which word best describes your approach to decision-making?",
         answer:[
-            {text: "Logical", value: 4 },
-            {text: "Intuitive", value: 2 },
-            {text: "Impulsive", value: 0 }
+            {text: "Logical", value: 4},
+            {text: "Intuitive", value: 2},
+            {text: "Impulsive", value: 0}
         ]
          
     },
@@ -94,8 +94,8 @@ var questionIndex = [
         question: "Which of the following best describes your level of empathy towards others?",
         answer: [
             { text: "Very empathetic and attuned to others' emotions", value: 4},
-            { text: "Moderately empathetic", value: 2 },
-            { text: "Not very empathetic", value: 0 }
+            { text: "Moderately empathetic", value: 2},
+            { text: "Not very empathetic", value: 0}
         ]
     },
 
@@ -172,19 +172,21 @@ function nextQuestion() {
     } else {
         endQuiz();
     }
+
 }
+
 
 
 function showQuestion(question) {
     questionsEl.innerText = question.question;
     question.answer.forEach(answer => {
         const button = document.createElement('button')
+        button.innerText = answer.text;
         button.classList.add('btn')
         
 
         button.addEventListener('click', answerSelect)
         answersEl.appendChild(button)
-        console.log(totalScore)
     })
 }
 
@@ -199,8 +201,8 @@ function answerSelect(e) {
     const answerChosen = e.target;
     const selectedAnswer = questionShuffle[currentQuestionIndex - 1].answer.find(answer => answer.text === answerChosen.innerText);
     currentScore += selectedAnswer.value;
-
-    localStorage.setItem('userScore', currentScore);
+    localStorage.setItem('userScore', currentScore)
+    
 
     console.log('Current Score: ', currentScore);
     
@@ -212,7 +214,7 @@ function answerSelect(e) {
     } else {
         setTimeout(() => {
             nextQuestion();
-        }, 100);
+        }, 1000);
     }
 
 }
@@ -227,7 +229,7 @@ function endQuiz() {
     //removes the questions/quiz section
     quizDocumentEl.classList.add('hide');
     //presents final score
-    endofquizresult.textContent = 'Your result is: ' + totalScore; //need to change totalscore to be the generated answer (using score)
+    endofquizresult.textContent = 'Your result is: ' + totalscore; //need to change totalscore to be the generated answer (using score)
     
 
     const randomImage = $('#random-image'); 
