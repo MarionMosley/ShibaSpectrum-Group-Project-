@@ -8,13 +8,17 @@
 }
 
 
-.video-container {
+.ytp-cued-thumbnail-overlay-image iframe {
+    size: 50%;
     justify-content: center;
     display: flex;
     margin: 0, 1rem;
     padding: 0, 1rem;
-}
+} 
 
+h3 {
+    text-align: center;
+}
 
 .text {
     font-family: 'Play', sans-serif;
@@ -23,5 +27,22 @@
     top: 0;
     color: white;
     font-size: 2rem;
-} 
+}  
 
+/*youtube video api*/
+/*.video img {
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.video iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+.text {
+    display: inline-block;
+    vertical-align: top;
+}

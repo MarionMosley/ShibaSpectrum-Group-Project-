@@ -20,7 +20,7 @@ let channel = [ //youtube channel list
 
 let video;
 
-let score = null //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+let score = 2 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
 
 
 function scoreError(){
@@ -80,29 +80,12 @@ function loadThumbnails(video) { //loads videos of the pre-selected channel on p
         <h3 class='text'>${video.snippet.title}</h3>
         </div>
         <div>
-          <iframe width="1280" height="720" src="https://www.youtube.com/embed/${video.id.videoId}">
+          <iframe width= 50% height= 200% src="https://www.youtube.com/embed/${video.id.videoId}">
           </iframe> 
         </div>`);
   });
   console.log(video);
 }
-
-
-//THIS FUNCTION IS NOW REDUNDENT
-//function that makes the clicked thumbnail a webplayer
-// $(document).on('click', '.click', function playVideo(e){ //running this function spits out so many errors...... but it works, so oh well
-//   e.preventDefault(); 
-//   const index = $(this).index('.click');
-//   const selectedVideo = video[index];
-//   $(videoContainer).empty();
-//   $(videoContainer).append(`
-//     <div>
-//       <h3 class='text'>${selectedVideo.snippet.title}</h3>
-//       <iframe width="1280" height="720" src="https://www.youtube.com/embed/${selectedVideo.id.videoId}">
-//       </iframe> 
-//     </div>
-//   `);
-// });
 
 
 loadThumbnails();

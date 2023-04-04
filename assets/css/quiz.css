@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 
 :root {
-    --dark: #2e3192;
-    --light: #7679cf;
-    --btn: #2e3192;
+    --dark: #6642e7;
+    --light: #8b75dd;
+    --btn: #6642e7;
     font-family: 'Play', sans-serif;
     background-color: var(--dark);
 
@@ -18,7 +18,7 @@
 
 h1 {
     font-family: 'Play', sans-serif;
-    padding-top: 5rem;
+    padding-top: 0.5rem;
     text-align: center;
     margin-top: 9rem;
     top: 0;
@@ -26,6 +26,22 @@ h1 {
     font-size: 4rem;
 }
 
+header p {
+    font-family: 'Play', sans-serif;
+    padding-top: 0.1rem;
+    text-align: center;
+    margin-top: 0.1rem;
+    top: 0;
+    color: white;
+    font-size: 1.25rem;
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
 body {
     padding: 0;
     margin: 0;
@@ -76,7 +92,7 @@ body {
 
 .selected {
     outline: none;
-    box-shadow: 0 0 10px rgb(3, 13, 68);
+    box-shadow: 0 0 10px rgb(136, 69, 6);
 }
 
 
@@ -104,7 +120,7 @@ body {
 /*end page CSS*/
 
 h2 {
-    color: white;
+    color: var(--dark);
     font-size: 1.75rem;
     margin: 0px auto;
     text-align: center;
@@ -149,6 +165,20 @@ h2 {
     padding: 10px 20px;
     font-size: 1.5rem;
 }
+
+/*random generated image api */
+
+#random-image img {
+    max-width: 30%;
+    height: auto;
+}
+#random-image {
+justify-content: center;
+align-items: center;
+display: flex;
+}
+
+
 
 /*hide class for javascript */
 
