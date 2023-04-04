@@ -1,10 +1,21 @@
 
+const replayBtn = document.querySelector('#replaybtn')
+const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; //currently no reason to have this as a var
+
+
 const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; 
+
 const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
 
 const hide = $('.delete');
+
+replayBtn.addEventListener('click', replayQuiz);
+
+function replayQuiz() {
+  location.replace('./index.html');
+}
 
 let channel = [ //youtube channel list
   {
@@ -20,7 +31,7 @@ let channel = [ //youtube channel list
 
 let video;
 
-let score = 2 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+let score = 40 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
 
 
 function scoreError(){
@@ -80,7 +91,7 @@ function loadThumbnails(video) { //loads videos of the pre-selected channel on p
         <h3 class='text'>${video.snippet.title}</h3>
         </div>
         <div>
-          <iframe width= 50% height= 200% src="https://www.youtube.com/embed/${video.id.videoId}">
+          <iframe width= 50% height= 200% src="https://www.youtube.com/embed/${video.id.videoId}" style=" display: block; margin: 0 auto; margin-bottom: 2rem; margin-top: 1rem;">
           </iframe> 
         </div>`);
   });
