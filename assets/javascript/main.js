@@ -1,12 +1,75 @@
 
-const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8';
+const replayBtn = document.querySelector('#replaybtn')
+
+
+const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; 
+const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
+
+const hide = $('.delete');
+
+// replayBtn.addEventListener('click', replayQuiz);
+
+function replayQuiz() {
+  location.replace('./index.html');
+}
+
+let channel = [ //youtube channel list
+  {
+    lofiGirl: 'UCSJ4gkVC6NrvII8umztf0Ow'
+  },
+  {
+    sunshine:'UC41BjlpB0ExhJFysKWf70xg'
+  },
+  {
+    shiba: 'UCjlcOM4JaLoUbFWQ7j0LOKA'
+  }
+]
+
 let video;
 
+let score = localStorage.getItem('userScore'); // gets score from local storage
 
-// api call grabs top 3 most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
-fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCSJ4gkVC6NrvII8umztf0Ow&maxResults=3&order=viewCount&key=${apiKey}`, { 
+
+function scoreError(){
+  $(videoContainer).append(`
+    <div class='notification'>
+    <button class="delete"></button>
+    There was a error getting your score
+    </div>`
+  );
+  return;
+}
+
+$(document).on('click', '.delete', function(e){
+  e.preventDefault();
+  $(videoContainer).empty();
+})
+
+
+if (score >= 38) { //if statement that gets channel id based on score, also clear local on load
+  channelId = channel[2].shiba;
+  console.log(channelId, score);
+} else if (score >= 15 && score <= 37) {
+  channelId = channel[1].sunshine;
+  console.log(channelId, score);
+} else if (score >= 1 && score <= 14){
+  channelId = channel[0].lofiGirl;
+  console.log(channelId, score);
+} else {
+  console.log('error loading score');
+  scoreError();
+}
+
+
+$(document).on('click', '.delete', function(e){
+  e.preventDefault();
+  $(videoContainer).empty();
+})
+
+// api call grabs the most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
+fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiKey}`, { 
 })
 .then(response => response.json())
 .then(data => {
@@ -18,7 +81,7 @@ fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=U
 
 
 
-function loadThumbnails(video) { //loads thumbnails of the channel on page load.
+function loadThumbnails(video) { //loads videos of the pre-selected channel on page load. 
   video.forEach(video => { //this spits out errors.... but works....
     console.log(video.snippet.title);
     $(videoContainer).append(`
@@ -26,26 +89,11 @@ function loadThumbnails(video) { //loads thumbnails of the channel on page load.
         <h3 class='text'>${video.snippet.title}</h3>
         </div>
         <div>
-        <img class='click' src="${video.snippet.thumbnails.high.url}">
-      </div>`); 
+          <iframe width= 50% height= 200% src="https://www.youtube.com/embed/${video.id.videoId}" style=" display: block; margin: 0 auto; margin-bottom: 2rem; margin-top: 1rem;">
+          </iframe> 
+        </div>`);
   });
   console.log(video);
 }
-
-
-//function that makes the clicked thumbnail a webplayer
-$(document).on('click', '.click', function playVideo(){ //running this function spits out so many errors...... but it works, so oh well
-  const index = $(this).index('.click');
-  const selectedVideo = video[index];
-  $(videoContainer).empty();
-  $(videoContainer).append(`
-    <div>
-      <h3 class='text'>${selectedVideo.snippet.title}</h3>
-      <iframe width="1280" height="720" src="https://www.youtube.com/embed/${selectedVideo.id.videoId}">
-      </iframe> 
-    </div>
-  `);
-});
-
 
 loadThumbnails();
