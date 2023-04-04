@@ -1,20 +1,27 @@
 
+<<<<<<< HEAD
 const replayBtn = document.querySelector('#replaybtn')
 
 
 const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; 
+=======
+const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; //currently no reason to have this as a var
+>>>>>>> 31adabb54b02a224ff254e259cbc62dc48836c7d
 const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
 
 const hide = $('.delete');
 
+<<<<<<< HEAD
 // replayBtn.addEventListener('click', replayQuiz);
 
 function replayQuiz() {
   location.replace('./index.html');
 }
 
+=======
+>>>>>>> 31adabb54b02a224ff254e259cbc62dc48836c7d
 let channel = [ //youtube channel list
   {
     lofiGirl: 'UCSJ4gkVC6NrvII8umztf0Ow'
@@ -29,6 +36,7 @@ let channel = [ //youtube channel list
 
 let video;
 
+<<<<<<< HEAD
 let score = localStorage.getItem('userScore'); // gets score from local storage
 
 
@@ -70,6 +78,49 @@ $(document).on('click', '.delete', function(e){
 
 // api call grabs the most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
 fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiKey}`, { 
+=======
+let score = 2 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+
+
+function scoreError(){
+  $(videoContainer).append(`
+    <div class='notification'>
+    <button class="delete"></button>
+    There was a error getting your score
+    </div>`
+  );
+  return;
+}
+
+$(document).on('click', '.delete', function(e){
+  e.preventDefault();
+  $(videoContainer).empty();
+})
+
+
+if (score >= 9) { //if statement that gets channel id based on score 
+  channelId = channel[2].shiba;
+  console.log(channelId, score);
+} else if (score >= 5 && score <= 8) {
+  channelId = channel[1].sunshine;
+  console.log(channelId, score);
+} else if (score >= 1 && score <= 4){
+  channelId = channel[0].lofiGirl;
+  console.log(channelId, score);
+} else {
+  console.log('error loading score');
+  scoreError();
+}
+
+
+$(document).on('click', '.delete', function(e){
+  e.preventDefault();
+  $(videoContainer).empty();
+})
+
+// api call grabs top 3 most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
+fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiALT}`, { 
+>>>>>>> 31adabb54b02a224ff254e259cbc62dc48836c7d
 })
 .then(response => response.json())
 .then(data => {
@@ -89,11 +140,19 @@ function loadThumbnails(video) { //loads videos of the pre-selected channel on p
         <h3 class='text'>${video.snippet.title}</h3>
         </div>
         <div>
+<<<<<<< HEAD
           <iframe width= 50% height= 200% src="https://www.youtube.com/embed/${video.id.videoId}" style=" display: block; margin: 0 auto; margin-bottom: 2rem; margin-top: 1rem;">
+=======
+          <iframe width= 50% height= 200% src="https://www.youtube.com/embed/${video.id.videoId}">
+>>>>>>> 31adabb54b02a224ff254e259cbc62dc48836c7d
           </iframe> 
         </div>`);
   });
   console.log(video);
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 31adabb54b02a224ff254e259cbc62dc48836c7d
 loadThumbnails();
