@@ -1,5 +1,5 @@
 
-const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; //currently no reason to have this as a var
+const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; 
 const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
@@ -39,13 +39,13 @@ $(document).on('click', '.delete', function(e){
 })
 
 
-if (score >= 9) { //if statement that gets channel id based on score 
+if (score >= 38) { //if statement that gets channel id based on score, also clear local on load
   channelId = channel[2].shiba;
   console.log(channelId, score);
-} else if (score >= 5 && score <= 8) {
+} else if (score >= 15 && score <= 37) {
   channelId = channel[1].sunshine;
   console.log(channelId, score);
-} else if (score >= 1 && score <= 4){
+} else if (score >= 0 && score <= 14){
   channelId = channel[0].lofiGirl;
   console.log(channelId, score);
 } else {
@@ -86,23 +86,5 @@ function loadThumbnails(video) { //loads videos of the pre-selected channel on p
   });
   console.log(video);
 }
-
-
-//THIS FUNCTION IS NOW REDUNDENT
-//function that makes the clicked thumbnail a webplayer
-// $(document).on('click', '.click', function playVideo(e){ //running this function spits out so many errors...... but it works, so oh well
-//   e.preventDefault(); 
-//   const index = $(this).index('.click');
-//   const selectedVideo = video[index];
-//   $(videoContainer).empty();
-//   $(videoContainer).append(`
-//     <div>
-//       <h3 class='text'>${selectedVideo.snippet.title}</h3>
-//       <iframe width="1280" height="720" src="https://www.youtube.com/embed/${selectedVideo.id.videoId}">
-//       </iframe> 
-//     </div>
-//   `);
-// });
-
 
 loadThumbnails();
