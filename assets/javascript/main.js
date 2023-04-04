@@ -9,7 +9,9 @@ const videoClick = $('.click');
 
 const hide = $('.delete');
 
+
 // replayBtn.addEventListener('click', replayQuiz);
+
 
 function replayQuiz() {
   location.replace('./index.html');
@@ -69,7 +71,9 @@ $(document).on('click', '.delete', function(e){
 })
 
 // api call grabs the most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
+
 fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiKey}`, { 
+
 })
 .then(response => response.json())
 .then(data => {
