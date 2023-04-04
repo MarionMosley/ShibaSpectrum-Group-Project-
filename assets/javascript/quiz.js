@@ -9,6 +9,11 @@ const scoreEl = document.querySelector('#score')
 const questionContainerEl = document.getElementById('question-container')
 const endPage = document.getElementById('end-screen')
 const endofquizresult = document.getElementById('finalscore')
+var submitBtn = document.querySelector('#submitbtn');
+
+//name submission at end of quiz
+submitBtn.addEventListener("click", submitName);
+
 
 
 let totalscore = "Something! (we will put a randomised image under this?)";
@@ -17,62 +22,62 @@ endPage.classList.add('hide');
 var questionIndex = [
     {
         question: "Which word best describes your approach to decision-making?",
-        answer:["Logical", "Intuitive", "Impulsive"] ,
-         
+        answer: ["Logical", "Intuitive", "Impulsive"],
+
     },
     {
         question: "Which of the following best describes your communication style?",
-        answer:["Direct and to the point", "Diplomatic and tactful", "Expressive and enthusiastic"] ,
-         
+        answer: ["Direct and to the point", "Diplomatic and tactful", "Expressive and enthusiastic"],
+
     },
     {
         question: "How do you typically respond to stress?",
-        answer:["By working harder and staying focused", "By seeking support and talking to others", "By avoiding the situation altogether"] ,
-        
+        answer: ["By working harder and staying focused", "By seeking support and talking to others", "By avoiding the situation altogether"],
+
     },
     {
         question: "How would you describe your level of assertiveness?",
-        answer:["Very assertive", "Moderately assertive", "Not very assertive"] ,
-        
+        answer: ["Very assertive", "Moderately assertive", "Not very assertive"],
+
     },
     {
         question: "Which of the following best describes your attitude towards rules and authority?",
-        answer:["Respectful and compliant", "Skeptical and questioning", "Rebellious and defiant"] ,
+        answer: ["Respectful and compliant", "Skeptical and questioning", "Rebellious and defiant"],
     },
-    
+
     {
         question: "How do you typically handle criticism or negative feedback?",
-        answer:["By taking it as an opportunity to learn and improve", "By becoming defensive or angry", "By feeling hurt and withdrawing"] ,
+        answer: ["By taking it as an opportunity to learn and improve", "By becoming defensive or angry", "By feeling hurt and withdrawing"],
     },
 
     {
         question: "How do you prefer to spend your free time?",
-        answer:["Engaging in physical activities", "Pursuing creative hobbies", "Relaxing and unwinding at home"] ,
+        answer: ["Engaging in physical activities", "Pursuing creative hobbies", "Relaxing and unwinding at home"],
     },
 
     {
         question: "Which of the following best describes your level of risk-taking?",
-        answer:["Very willing to take risks and try new things", "Moderately willing to take risks", "Not willing to take risks and preferring safety"] ,
+        answer: ["Very willing to take risks and try new things", "Moderately willing to take risks", "Not willing to take risks and preferring safety"],
     },
 
     {
         question: "Which of the following best describes your level of self-discipline?",
-        answer:["Very disciplined and able to stick to routines and schedules", "Moderately disciplined, but sometimes struggle with consistency", "Not very disciplined and often struggle to stay on track"] ,
+        answer: ["Very disciplined and able to stick to routines and schedules", "Moderately disciplined, but sometimes struggle with consistency", "Not very disciplined and often struggle to stay on track"],
     },
 
     {
         question: "Which of the following best describes your level of empathy towards others?",
-        answer:["Very empathetic and attuned to others' emotions", "Moderately empathetic", "Not very empathetic"] ,
+        answer: ["Very empathetic and attuned to others' emotions", "Moderately empathetic", "Not very empathetic"],
     },
 
     {
         question: "How do you make decisions?",
-        answer:["By relying on your intuition", "By carefully weighing all options", "By seeking advice and input from others"] ,
+        answer: ["By relying on your intuition", "By carefully weighing all options", "By seeking advice and input from others"],
     },
 
     {
         question: "Do you like cats or dogs more?",
-        answer:["Cats", "Dogs",] ,
+        answer: ["Cats", "Dogs",],
     },
 ];
 
@@ -103,8 +108,8 @@ function playQuiz() {
 
     questionContainerEl.classList.remove('hide');
     nextQuestion();
-    
-    
+
+
 
 
 };
@@ -147,9 +152,9 @@ function reset() {
 function answerSelect(e) {
     const answerChosen = e.target
     const correct = answerChosen.dataset.correct;
-   
-       
-        
+
+
+
     answerChosen.classList.add('selected')
     if (currentQuestionIndex === questionShuffle.length - 1) {
         endQuiz()
@@ -172,28 +177,43 @@ function endQuiz() {
     quizDocumentEl.classList.add('hide');
     //presents final score
     endofquizresult.textContent = 'Your result is: ' + totalscore; //need to change totalscore to be the generated answer (using score)
-    
 
-    const randomImage = $('#random-image'); 
+
+    const randomImage = $('#random-image');
     let image;
 
 
     fetch(`http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`,) //fetch request for random image 
         .then(response => response.json())
         .then(data => {
-        console.log(data);
-        image = data[0];    //gets item and assigns it to image var
-        console.log(image);
-        $(randomImage).append(`
+            console.log(data);
+            image = data[0];    //gets item and assigns it to image var
+            console.log(image);
+            $(randomImage).append(`
             <img class='click' src=${image}>
         `);
-    })
-    .catch(error => console.error(error));
+        })
+        .catch(error => console.error(error));
 }
 
 
-$('#submitbtn').on('click', function(){ //on quiz finish click, loads the "random" video
-    console.log('aaaaa')
-    location.replace('./main.html');
-});
 
+function submitName(event) {
+    event.preventDefault()
+    var playerNameInput = document.querySelector("#playername");
+    var playerName = playerNameInput.value;
+    console.log(playerName);
+    localStorage.setItem('Player Name:', playerName);
+    locReplace()
+    //window.location.href = `main.html?name=${playerName}`;
+}
+
+
+//$('#submitbtn').on('click', function () { //on quiz finish click, loads the "random" video
+   //console.log('aaaaa')
+   // localStorage.setItem(playerName);
+//});
+
+function locReplace() {
+    location.replace('./main.html');
+}

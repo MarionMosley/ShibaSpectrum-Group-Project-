@@ -4,6 +4,9 @@ const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
 
+var playerUser = localStorage.getItem('Player Name:');
+console.log(playerName); 
+
 const hide = $('.delete');
 
 replayBtn.addEventListener('click', replayQuiz);
@@ -26,7 +29,7 @@ let channel = [ //youtube channel list
 
 let video;
 
-let score = 40 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+let score = 2 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
 
 
 function scoreError(){
