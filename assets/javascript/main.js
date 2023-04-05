@@ -31,7 +31,6 @@ let video;
 
 let score = localStorage.getItem('userScore'); // gets score from local storage
 
-
 function scoreError(){
   $(videoContainer).append(`
     <div class='notification'>
