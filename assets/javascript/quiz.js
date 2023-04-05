@@ -214,7 +214,7 @@ function answerSelect(e) {
     } else {
         setTimeout(() => {
             nextQuestion();
-        }, 1000);
+        }, 100);
     }
 
 }
@@ -229,7 +229,7 @@ function endQuiz() {
     //removes the questions/quiz section
     quizDocumentEl.classList.add('hide');
     //presents final score
-    endofquizresult.textContent = 'Your result is: ' + totalscore; //need to change totalscore to be the generated answer (using score)
+    endofquizresult.textContent = 'Your result is: ' + currentScore; //need to change totalscore to be the generated answer (using score)
     
 
     const randomImage = $('#random-image'); 
