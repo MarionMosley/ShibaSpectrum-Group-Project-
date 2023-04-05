@@ -11,7 +11,7 @@ const endPage = document.getElementById('end-screen')
 const endofquizresult = document.getElementById('finalscore')
 
 
-var currentscore = 0;
+var currentScore = 0;
 
 endPage.classList.add('hide');
 
@@ -123,7 +123,7 @@ var questionIndex = [
 // Score values
 console.log(questionIndex[0].question);
 
-var totalscore = currentscore;
+var totalscore = currentScore;
 /* function addScore() {
     
     currentscore = 
@@ -175,7 +175,7 @@ function nextQuestion() {
 
 }
 
-console.log(questionIndex[0].question);
+
 
 function showQuestion(question) {
     questionsEl.innerText = question.question;
@@ -183,9 +183,8 @@ function showQuestion(question) {
         const button = document.createElement('button')
         button.innerText = answer.text;
         button.classList.add('btn')
-        if (question.correctAnswer === answer.text) {
-            button.dataset.correct = true
-        }
+        
+
         button.addEventListener('click', answerSelect)
         answersEl.appendChild(button)
     })
@@ -199,18 +198,23 @@ function reset() {
 
 
 function answerSelect(e) {
-    const answerChosen = e.target
-    const correct = answerChosen.dataset.correct;
-   
-       
-        
+    const answerChosen = e.target;
+    const selectedAnswer = questionShuffle[currentQuestionIndex - 1].answer.find(answer => answer.text === answerChosen.innerText);
+    currentScore += selectedAnswer.value;
+    localStorage.setItem('userScore', currentScore)
+    
+
+    console.log('Current Score: ', currentScore);
+    
+    
+
     answerChosen.classList.add('selected')
     if (currentQuestionIndex === questionShuffle.length - 1) {
         endQuiz()
     } else {
         setTimeout(() => {
             nextQuestion();
-        }, 1000);
+        }, 100);
     }
 
 }
@@ -225,7 +229,7 @@ function endQuiz() {
     //removes the questions/quiz section
     quizDocumentEl.classList.add('hide');
     //presents final score
-    endofquizresult.textContent = 'Your result is: ' + totalscore; //need to change totalscore to be the generated answer (using score)
+    endofquizresult.textContent = 'Your result is: ' + currentScore; //need to change totalscore to be the generated answer (using score)
     
 
     const randomImage = $('#random-image'); 
