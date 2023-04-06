@@ -60,6 +60,10 @@ body {
     box-shadow: 0 0 10px 2px var(--light);
 }
 
+#result {
+    text-align: center;
+    font-size: 1.5rem;
+}
 
 #questions {
     font-size: 1.75rem;

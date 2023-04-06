@@ -11,7 +11,9 @@ const videoClick = $('.click');
 var playerUser = localStorage.getItem('Player Name:');
 console.log(playerUser); 
 
-h1.textContent = 'Nice Shiba-Nality, ' + playerUser + '! You might like this:';
+let shibanality = localStorage.getItem('Result');
+
+h1.textContent = 'Nice Shiba-Nality, ' + playerUser + '! as the ' + shibanality + ', you might like this:';
 const hide = $('.delete');
 
 
