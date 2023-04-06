@@ -9,6 +9,11 @@ const scoreEl = document.querySelector('#score')
 const questionContainerEl = document.getElementById('question-container')
 const endPage = document.getElementById('end-screen')
 const endofquizresult = document.getElementById('finalscore')
+var submitBtn = document.querySelector('#submitbtn');
+
+//name submission at end of quiz
+submitBtn.addEventListener("click", submitName);
+
 
 
 var currentScore = 0;
@@ -157,8 +162,8 @@ function playQuiz() {
 
     questionContainerEl.classList.remove('hide');
     nextQuestion();
-    
-    
+
+
 
 
 };
@@ -205,8 +210,6 @@ function answerSelect(e) {
     
 
     console.log('Current Score: ', currentScore);
-    
-    
 
     answerChosen.classList.add('selected')
     if (currentQuestionIndex === questionShuffle.length - 1) {
@@ -229,29 +232,44 @@ function endQuiz() {
     //removes the questions/quiz section
     quizDocumentEl.classList.add('hide');
     //presents final score
-    endofquizresult.textContent = 'Your result is: ' + currentScore; //need to change totalscore to be the generated answer (using score)
-    
 
-    const randomImage = $('#random-image'); 
+
+
+    const randomImage = $('#random-image');
     let image;
 
 
     fetch(`http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`,) //fetch request for random image 
         .then(response => response.json())
         .then(data => {
-        console.log(data);
-        image = data[0];    //gets item and assigns it to image var
-        console.log(image);
-        $(randomImage).append(`
+            console.log(data);
+            image = data[0];    //gets item and assigns it to image var
+            console.log(image);
+            $(randomImage).append(`
             <img class='click' src=${image}>
         `);
-    })
-    .catch(error => console.error(error));
+        })
+        .catch(error => console.error(error));
 }
 
 
-$('#submitbtn').on('click', function(){ //on quiz finish click, loads the "random" video
-    console.log('aaaaa')
-    location.replace('./main.html');
-});
 
+function submitName(event) {
+    event.preventDefault()
+    var playerNameInput = document.querySelector("#playername");
+    var playerName = playerNameInput.value;
+    console.log(playerName);
+    localStorage.setItem('Player Name:', playerName);
+    locReplace()
+    //window.location.href = `main.html?name=${playerName}`;
+}
+
+
+//$('#submitbtn').on('click', function () { //on quiz finish click, loads the "random" video
+   //console.log('aaaaa')
+   // localStorage.setItem(playerName);
+//});
+
+function locReplace() {
+    location.replace('./main.html');
+}
