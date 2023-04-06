@@ -54,12 +54,15 @@ $(document).on('click', '.delete', function(e){
 if (score >= 38) { //if statement that gets channel id based on score, also clear local on load
   channelId = channel[2].shiba;
   console.log(channelId, score);
+  localStorage.clear('userScore');
 } else if (score >= 15 && score <= 37) {
   channelId = channel[1].sunshine;
   console.log(channelId, score);
+  localStorage.clear('userScore');
 } else if (score >= 1 && score <= 14){
   channelId = channel[0].lofiGirl;
   console.log(channelId, score);
+  localStorage.clear('userScore');
 } else {
   console.log('error loading score');
   scoreError();
