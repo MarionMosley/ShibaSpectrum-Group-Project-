@@ -11,7 +11,7 @@ const hide = $('.delete');
 
 
 
-// replayBtn.addEventListener('click', replayQuiz);
+replayBtn.addEventListener('click', replayQuiz);
 
 
 function replayQuiz() {
