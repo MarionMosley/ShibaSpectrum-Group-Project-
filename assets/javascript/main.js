@@ -1,10 +1,8 @@
 
 const replayBtn = document.querySelector('#replaybtn')
-//const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; //currently no reason to have this as a var
 
 
 const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; 
-
 const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
 const videoContainer = $('.video');
 const videoClick = $('.click'); 
@@ -14,7 +12,7 @@ console.log(playerUser);
 
 const hide = $('.delete');
 
-replayBtn.addEventListener('click', replayQuiz);
+// replayBtn.addEventListener('click', replayQuiz);
 
 function replayQuiz() {
   location.replace('./index.html');
@@ -34,7 +32,8 @@ let channel = [ //youtube channel list
 
 let video;
 
-let score = 2 //json.parse(localStorage.getItem('saveScore')); // gets score from local storage
+
+let score = localStorage.getItem('userScore'); // gets score from local storage
 
 
 function scoreError(){
@@ -59,7 +58,7 @@ if (score >= 38) { //if statement that gets channel id based on score, also clea
 } else if (score >= 15 && score <= 37) {
   channelId = channel[1].sunshine;
   console.log(channelId, score);
-} else if (score >= 0 && score <= 14){
+} else if (score >= 1 && score <= 14){
   channelId = channel[0].lofiGirl;
   console.log(channelId, score);
 } else {
@@ -73,7 +72,8 @@ $(document).on('click', '.delete', function(e){
   $(videoContainer).empty();
 })
 
-// api call grabs top 3 most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
+
+// api call grabs the most viewed videos, will need to make the search url dependent on the "score" the user gets to load different video recomendations
 fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiKey}`, { 
 })
 .then(response => response.json())
