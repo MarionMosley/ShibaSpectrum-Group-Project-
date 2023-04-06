@@ -268,10 +268,10 @@ function submitName(event) {
 function theResult() {
     let score = localStorage.getItem('userScore');
 
-    if (score >= 38) {
+    if (score >= 26) {
         result.textContent = 'Shiba Life of the Paw-ty'
         console.log(result, score);
-    } else if (score >= 15 && score <= 37) {
+    } else if (score >= 15 && score <= 25) {
         result.textContent = 'The Shiba Zen Master'
         console.log(result, score);
     } else if (score >= 1 && score <= 14) {
