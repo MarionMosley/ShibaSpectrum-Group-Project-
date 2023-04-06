@@ -1,6 +1,8 @@
 
 const replayBtn = document.querySelector('#replaybtn')
 
+const h1 = document.getElementById('h1');
+
 
 const apiKey = 'AIzaSyCzwyCf3RyC5VDnQVV_zLp0mqzG3WVaUP8'; 
 const apiALT = 'AIzaSyBb2hSfiyO0puJQ4dHLmWQjDYu3hgbmIzo';
@@ -10,6 +12,7 @@ const videoClick = $('.click');
 var playerUser = localStorage.getItem('Player Name:');
 console.log(playerUser); 
 
+h1.textContent = 'Nice Shiba-Nality, ' + playerUser + '! You might like this:';
 const hide = $('.delete');
 
 // replayBtn.addEventListener('click', replayQuiz);
