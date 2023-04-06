@@ -10,6 +10,7 @@ const videoClick = $('.click');
 const hide = $('.delete');
 
 
+
 // replayBtn.addEventListener('click', replayQuiz);
 
 
