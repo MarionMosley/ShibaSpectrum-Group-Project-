@@ -84,8 +84,6 @@ $(document).on('click', '.delete', function(e){
 
 fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiKey}`, { 
 
-fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=1&order=viewCount&key=${apiALT}`, { 
-
 
 })
 .then(response => response.json())
